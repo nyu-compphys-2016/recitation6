@@ -25,8 +25,6 @@ def numpySave(arr, filename):
 
 def hdf5Save(arr, filename):
 # Save arr to an hdf5 file
-    np.savetxt(filename, arr)
-
 
     f = h5.File(filename, "w")
 
@@ -87,10 +85,10 @@ if __name__ == "__main__":
     print("Filetest")
     print("size: ", a.shape)
 
-    print("Python: ", t2-t1)
-    print("   err: ", np.abs(b-a).max() )
-    print("Numpy: ", t4-t3)
-    print("   err: ", np.abs(c-a).max() )
-    print("HDF5: ", t6-t5)
-    print("   err: ", np.abs(d-a).max() )
+    print("Python time: ", t2-t1)
+    print("       err: ", np.abs(b-a).max() )
+    print("Numpy time: ", t4-t3)
+    print("       err: ", np.abs(c-a).max() )
+    print("HDF5  time: ", t6-t5)
+    print("       err: ", np.abs(d-a).max() )
 
