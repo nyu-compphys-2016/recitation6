@@ -3,11 +3,13 @@ import h5py as h5
 import time
 
 def makeArray(shape):
+#Make an array of the given shape
 
     return np.random.rand(*shape)
 
 
 def plainSave(arr, filename):
+# Save arr to a txt file using standard python
     f = open(filename, "w")
 
     for row in arr:
@@ -18,9 +20,13 @@ def plainSave(arr, filename):
     f.close()
 
 def numpySave(arr, filename):
+# Save arr to a txt file with numpy
     np.savetxt(filename, arr)
 
 def hdf5Save(arr, filename):
+# Save arr to an hdf5 file
+    np.savetxt(filename, arr)
+
 
     f = h5.File(filename, "w")
 
