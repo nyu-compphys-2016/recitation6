@@ -63,27 +63,28 @@ if __name__ == "__main__":
     a = makeArray(shape)
 
     t1 = time.time()
-    numpySave(a, "numpy.txt")
-    b = numpyLoad("numpy.txt")
+    plainSave(a, "plain.txt")
+    b = plainLoad("plain.txt")
     t2 = time.time()
 
-    print(  np.abs(b-a).max() )
-
     t3 = time.time()
-    plainSave(a, "plain.txt")
-    c = plainLoad("plain.txt")
+    numpySave(a, "numpy.txt")
+    c = numpyLoad("numpy.txt")
     t4 = time.time()
 
-    print(  np.abs(c-a).max() )
     
     t5 = time.time()
     hdf5Save(a, "data.h5")
     d = hdf5Load("data.h5")
     t6 = time.time()
 
-    print(  np.abs(d-a).max() )
+    print("Filetest")
+    print("size: ", a.shape)
 
-    print("Numpy: ", t2-t1)
-    print("Python: ", t4-t3)
+    print("Python: ", t2-t1)
+    print("   err: ", np.abs(b-a).max() )
+    print("Numpy: ", t4-t3)
+    print("   err: ", np.abs(c-a).max() )
     print("HDF5: ", t6-t5)
+    print("   err: ", np.abs(d-a).max() )
 
